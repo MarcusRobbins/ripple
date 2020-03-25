@@ -1,0 +1,22 @@
+{
+  "name": "meshcat",
+  "version": "0.0.1",
+  "main": "src/index.js",
+  "repository": "https://github.com/rdeits/meshcat",
+  "author": "Robin Deits",
+  "license": "MIT",
+  "devDependencies": {
+    "imports-loader": "^0.8.0",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.1"
+  },
+  "dependencies": {
+    "ccapture.js": "aceslowman/ccapture.js#npm-fix",
+    "dat.gui": "^0.7.1",
+    "msgpack-lite": "^0.1.26",
+    "three": "^0.110.0"
+  },
+  "scripts": {
+    "build": "webpack"
+  }
+}

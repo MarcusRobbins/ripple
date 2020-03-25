@@ -1,0 +1,4 @@
+numpy
+anytree
+trimesh[easy]
+meshcat>=0.0.16
