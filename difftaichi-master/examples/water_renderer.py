@@ -115,7 +115,7 @@ def apply_mask(t: ti.i32):
   for i in range(n_grid):
     for j in range(n_grid):
       #ti.atom
-      radius = i**2 + j**2
+      radius = (i - 128)**2 + (j - 128)**2
       if radius > 20**2 and radius < 30**2:
       #if (i > 108 and i < 148) and not (i > 118 and i < 138) or (j > 108 and j < 148) and not (j > 118 and j < 138) or ():
       #f (i < 118 or i > 138) and (j < 118 or j > 138) and (i > 108 or i < 148) and (j > 108 or j < 148):
@@ -186,7 +186,7 @@ def compute_loss():
 def apply_grad():
   # gradient descent
   for i, j in mask.grad:
-    mask[i, j] -= learning_rate * mask.grad[i, j]* 0.00101
+    mask[i, j] -= learning_rate * mask.grad[i, j]* 0.101
   # for i in range(steps):
   #   wave_gen[i,0] -= learning_rate * wave_gen.grad[i,0]
     # wave_gen[i,1] -= learning_rate * wave_gen.grad[i,1]
@@ -269,7 +269,10 @@ def main():
 
   for i in range(256):
     for j in range(256):
-      mask[j, i] = 0.0
+      if np.random.rand() < 0.1:
+        radius = (i - 128)**2 + (j - 128)**2
+        if radius > 20**2 and radius < 30**2:        
+          mask[j, i] = 1.0
 
 
   for t in range(256):
